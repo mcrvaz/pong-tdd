@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class TimeProxy : ITimeProxy {
     public float GetDeltaTime() {
-		return Time.deltaTime;
+		  return Time.deltaTime;
+    }
+
+    public float GetFixedDeltaTime() {
+      return Time.fixedDeltaTime;
     }
 }

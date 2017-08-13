@@ -6,8 +6,11 @@ public class PlayerMovement {
         this.Speed = speed;
     }
 
-    public Vector2 CalculateMovement(float y, float deltaTime) {
-        return new Vector2(0, y * Speed * deltaTime);
+    public Vector2 CalculateMovement(Vector2 currentPosition, float y, float deltaTime) {
+        return new Vector2(
+            currentPosition.x,
+            currentPosition.y + y * Speed * deltaTime
+        );
     }
 
 }

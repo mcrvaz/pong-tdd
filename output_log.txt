@@ -1,0 +1,2 @@
+There should be 'PlayerWithTests_Data'
+folder next to the executable
