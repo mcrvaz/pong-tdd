@@ -9,7 +9,7 @@ public class PlayerMovement {
     public Vector2 CalculateMovement(Vector2 currentPosition, float y, float deltaTime) {
         return new Vector2(
             currentPosition.x,
-            currentPosition.y + y * Speed * deltaTime
+            currentPosition.y + (y * Speed * deltaTime)
         );
     }
 

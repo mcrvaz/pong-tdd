@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
 	[SerializeField] private float speed;
+    public float Speed { get { return speed; } set { speed = value; } }
 
 	public IInputProxy inputProxy;
 	public ITimeProxy timeProxy;
@@ -12,7 +13,8 @@ public class Player : MonoBehaviour {
 	private PlayerMovement playerMovement;
 	private Rigidbody2D rb;
 
-	public void Construct(float speed, Rigidbody2D rb) {
+
+    public void Construct(float speed, Rigidbody2D rb) {
 		this.playerMovement = new PlayerMovement(speed);
 		this.rb = rb;
 		this.inputProxy = new InputProxy();
@@ -20,7 +22,7 @@ public class Player : MonoBehaviour {
 	}
 
 	void Awake() {
-		Construct(speed, GetComponent<Rigidbody2D>());
+		Construct(Speed, GetComponent<Rigidbody2D>());
 	}
 
 	void FixedUpdate() {

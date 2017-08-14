@@ -23,11 +23,17 @@ ExportedObj/
 *.svd
 *.pdb
 
+# Unity3D Test Files
+**/Assets/InitTestScene*.unity
+**/Assets/InitTestScene*.unity.meta
+
 # Unity3D generated meta files
 *.pidb.meta
 
+
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
+output_log.txt
 
 # Builds
 *.apk
