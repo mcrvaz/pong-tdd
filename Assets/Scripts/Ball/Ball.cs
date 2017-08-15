@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour {
 
+	public float speed;
+
 	private BallMovement ballMovement;
 	private Rigidbody2D rb;
 
 	public void Construct(Rigidbody2D rb) {
-		this.ballMovement = new BallMovement();
+		this.ballMovement = new BallMovement(speed);
 		this.rb = rb;
 	}
 

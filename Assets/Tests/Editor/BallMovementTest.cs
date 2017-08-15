@@ -12,7 +12,7 @@ namespace Pong_TDD.Assets.Scripts.Tests.Editor
 
 			[SetUp]
 			public void BeforeEachTest() {
-				this.ballMovement = new BallMovement();
+				this.ballMovement = new BallMovement(2);
 			}
 
 			[Test]
@@ -23,20 +23,20 @@ namespace Pong_TDD.Assets.Scripts.Tests.Editor
 				ballMovement.randomProxy = random;
 
 				Assert.AreEqual(
-					randomX,
+					randomX * ballMovement.speed,
 					ballMovement.GetStartingDirection().x
 				);
 			}
 
 			[Test]
-			public void Sets_Random_Y_Starting_Direction() {
+			public void Sets_Random_Y_Starting_Direction_With_Speed() {
 				var randomY = 5;
 				var random = Substitute.For<IRandom>();
 				random.Value().Returns(randomY);
 				ballMovement.randomProxy = random;
 
 				Assert.AreEqual(
-					randomY,
+					randomY * ballMovement.speed,
 					ballMovement.GetStartingDirection().y
 				);
 			}
