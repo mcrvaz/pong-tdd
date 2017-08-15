@@ -1,3 +1,3 @@
-public interface IInputProxy {
+public interface IInput {
     float GetAxisRaw(string axisName);
 }

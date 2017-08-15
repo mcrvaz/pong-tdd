@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputProxy : IInputProxy {
+public class InputProxy : IInput {
     public float GetAxisRaw(string axisName) {
-		return Input.GetAxisRaw(axisName);
+        return Input.GetAxisRaw(axisName);
     }
 }

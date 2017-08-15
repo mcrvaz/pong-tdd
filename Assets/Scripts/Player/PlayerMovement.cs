@@ -1,6 +1,8 @@
 using UnityEngine;
+
 public class PlayerMovement {
-    public float Speed { get; set; }
+
+    private float Speed { get; set; }
 
     public PlayerMovement(float speed){
         this.Speed = speed;

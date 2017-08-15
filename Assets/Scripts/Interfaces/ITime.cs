@@ -1,4 +1,4 @@
-﻿public interface ITimeProxy {
+﻿public interface ITime {
     float GetDeltaTime();
     float GetFixedDeltaTime();
 }

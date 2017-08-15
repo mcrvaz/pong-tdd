@@ -7,6 +7,7 @@ namespace Pong_TDD.Assets.Scripts.Tests.Editor
     public class PlayerMovementTest
     {
         public class CalculateMovement {
+
             private float speed;
             private PlayerMovement pm;
             private Vector2 currentPosition;

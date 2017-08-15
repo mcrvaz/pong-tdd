@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimeProxy : ITimeProxy {
+public class TimeProxy : ITime {
     public float GetDeltaTime() {
-		  return Time.deltaTime;
+        return Time.deltaTime;
     }
 
     public float GetFixedDeltaTime() {
-      return Time.fixedDeltaTime;
+        return Time.fixedDeltaTime;
     }
 }

@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-	[SerializeField] private float speed;
-    public float Speed { get { return speed; } set { speed = value; } }
+    public float Speed;
 
-	public IInputProxy inputProxy;
-	public ITimeProxy timeProxy;
+	public IInput inputProxy;
+	public ITime timeProxy;
 
 	private PlayerMovement playerMovement;
 	private Rigidbody2D rb;
-
 
     public void Construct(float speed, Rigidbody2D rb) {
 		this.playerMovement = new PlayerMovement(speed);

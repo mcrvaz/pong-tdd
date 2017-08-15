@@ -21,8 +21,8 @@ public class PlayerTest {
 
 	[UnityTest]
 	public IEnumerator _Moves_Player_1_Times_Speed_Units_Vertically_Starting_At_0() {
-		var inputProxy = Substitute.For<IInputProxy>();
-		var timeProxy = Substitute.For<ITimeProxy>();
+		var inputProxy = Substitute.For<IInput>();
+		var timeProxy = Substitute.For<ITime>();
 		var currentPosition = rigidbody.position;
 		inputProxy.GetAxisRaw("Vertical").Returns(1);
 		timeProxy.GetFixedDeltaTime().Returns(1);
@@ -40,8 +40,8 @@ public class PlayerTest {
 
 	[UnityTest]
 	public IEnumerator _Moves_Player_1_Times_Speed_Units_Vertically_Starting_At_1() {
-		var inputProxy = Substitute.For<IInputProxy>();
-		var timeProxy = Substitute.For<ITimeProxy>();
+		var inputProxy = Substitute.For<IInput>();
+		var timeProxy = Substitute.For<ITime>();
 		var currentPosition = rigidbody.position;
 		rigidbody.position = Vector2.one;
 		inputProxy.GetAxisRaw("Vertical").Returns(1);
@@ -60,8 +60,8 @@ public class PlayerTest {
 
 	[UnityTest]
 	public IEnumerator _Moves_Player_2_Times_Speed_Units_Vertically_Starting_At_0() {
-		var inputProxy = Substitute.For<IInputProxy>();
-		var timeProxy = Substitute.For<ITimeProxy>();
+		var inputProxy = Substitute.For<IInput>();
+		var timeProxy = Substitute.For<ITime>();
 		var currentPosition = rigidbody.position;
 		inputProxy.GetAxisRaw("Vertical").Returns(2);
 		timeProxy.GetFixedDeltaTime().Returns(1);
@@ -79,8 +79,8 @@ public class PlayerTest {
 
 	[UnityTest]
 	public IEnumerator _Moves_Player_2_Times_Speed_Units_Vertically_Starting_At_1() {
-		var inputProxy = Substitute.For<IInputProxy>();
-		var timeProxy = Substitute.For<ITimeProxy>();
+		var inputProxy = Substitute.For<IInput>();
+		var timeProxy = Substitute.For<ITime>();
 		var currentPosition = rigidbody.position;
 		rigidbody.position = Vector2.one;
 		inputProxy.GetAxisRaw("Vertical").Returns(2);
