@@ -16,28 +16,50 @@ namespace Pong_TDD.Assets.Scripts.Tests.Editor
 			}
 
 			[Test]
-			public void Sets_Random_X_Starting_Direction() {
-				var randomX = 5;
+			public void Sets_Positive_1_Horizontal_Starting_Direction() {
 				var random = Substitute.For<IRandom>();
-				random.Value().Returns(randomX);
+				random.Range(Arg.Any<int>(), Arg.Any<int>()).Returns(1);
 				ballMovement.randomProxy = random;
 
 				Assert.AreEqual(
-					randomX * ballMovement.speed,
-					ballMovement.GetStartingDirection().x
+					1,
+					ballMovement.GetStartingDirection().x / ballMovement.speed
 				);
 			}
 
 			[Test]
-			public void Sets_Random_Y_Starting_Direction_With_Speed() {
-				var randomY = 5;
+			public void Sets_Negative_1_Horizontal_Starting_Direction() {
 				var random = Substitute.For<IRandom>();
-				random.Value().Returns(randomY);
+				random.Range(Arg.Any<int>(), Arg.Any<int>()).Returns(0);
 				ballMovement.randomProxy = random;
 
 				Assert.AreEqual(
-					randomY * ballMovement.speed,
-					ballMovement.GetStartingDirection().y
+					-1,
+					ballMovement.GetStartingDirection().x / ballMovement.speed
+				);
+			}
+
+			[Test]
+			public void Sets_Positive_1_Vertical_Starting_Direction() {
+				var random = Substitute.For<IRandom>();
+				random.Range(Arg.Any<int>(), Arg.Any<int>()).Returns(1);
+				ballMovement.randomProxy = random;
+
+				Assert.AreEqual(
+					1,
+					ballMovement.GetStartingDirection().y / ballMovement.speed
+				);
+			}
+
+			[Test]
+			public void Sets_Negative_1_Vertical_Starting_Direction() {
+				var random = Substitute.For<IRandom>();
+				random.Range(Arg.Any<int>(), Arg.Any<int>()).Returns(0);
+				ballMovement.randomProxy = random;
+
+				Assert.AreEqual(
+					-1,
+					ballMovement.GetStartingDirection().y / ballMovement.speed
 				);
 			}
 		}

@@ -268,16 +268,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 50491619007527236, guid: 73935092d37bf3b41abde7beccb29164,
-        type: 2}
-      propertyPath: m_AngularDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 50491619007527236, guid: 73935092d37bf3b41abde7beccb29164,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 73935092d37bf3b41abde7beccb29164, type: 2}
   m_IsPrefabParent: 0

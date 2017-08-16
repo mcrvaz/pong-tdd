@@ -22,4 +22,7 @@ public class Ball : MonoBehaviour {
 		rb.velocity = ballMovement.GetStartingDirection();
 	}
 
+	void FixedUpdate() {
+		// Debug.Log(rb.velocity.magnitude);
+	}
 }

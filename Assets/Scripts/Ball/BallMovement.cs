@@ -13,7 +13,12 @@ public class BallMovement {
 	}
 
 	public Vector2 GetStartingDirection() {
-		return new Vector2(randomProxy.Value() * speed, randomProxy.Value() * speed);
+		var randomX = (randomProxy.Range(0, 2) * 2) - 1;
+		var randomY = (randomProxy.Range(0, 2) * 2) - 1;
+		return new Vector2(
+			randomX * speed,
+			randomY * speed
+		);
 	}
 
 }

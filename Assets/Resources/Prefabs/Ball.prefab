@@ -59,7 +59,7 @@ Rigidbody2D:
   m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: d5b96fece6218664caf7af6e7ee9bd62, type: 2}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e64a37b1dd837d45ad34c43a1148a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 25
+  speed: 5
 --- !u!212 &212858872383271940
 SpriteRenderer:
   m_ObjectHideFlags: 1
