@@ -1,23 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BallMovement {
 
-	public IRandom randomProxy;
+	public RandomUtils random;
 	public float speed;
 
 	public BallMovement(float speed) {
-		this.randomProxy = new RandomProxy();
+		this.random = new RandomUtils();
 		this.speed = speed;
 	}
 
 	public Vector2 GetStartingDirection() {
-		var randomX = (randomProxy.Range(0, 2) * 2) - 1;
-		var randomY = (randomProxy.Range(0, 2) * 2) - 1;
 		return new Vector2(
-			randomX * speed,
-			randomY * speed
+			random.Opposite(1) * speed,
+			random.Opposite(1) * speed
 		);
 	}
 

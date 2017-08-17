@@ -1,10 +1,9 @@
-﻿using UnityEngine.TestTools;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using NSubstitute;
 
 namespace Pong_TDD.Assets.Scripts.Tests.Editor
 {
-	public class RandomUtilsTest {
+    public class RandomUtilsTest {
 
 		public class Opposite {
 
