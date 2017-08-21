@@ -37,6 +37,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224587288435560312}
+  - component: {fileID: 114546853679529586}
+  - component: {fileID: 114652081449748080}
   m_Layer: 0
   m_Name: Scores
   m_TagString: Untagged
@@ -106,6 +108,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2027ef14c5f48840b7fd659561bfa17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 0}
+--- !u!114 &114546853679529586
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1555169795240910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbffce6d8f2150f4a9f7551b9aa68db2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114652081449748080
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1555169795240910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49122a893a2783745ad24ba20453a7ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreboard:
+  - {fileID: 114782598424874990}
+  - {fileID: 114511929137260172}
 --- !u!114 &114782598424874990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2027ef14c5f48840b7fd659561bfa17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 0}
 --- !u!114 &114869663320284278
 MonoBehaviour:
   m_ObjectHideFlags: 1

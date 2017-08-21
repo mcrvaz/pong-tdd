@@ -5,18 +5,22 @@ using UnityEngine.UI;
 
 public class ScoreView : MonoBehaviour {
 
-	public Text text;
+	private Text textComponent;
+
+	public int Score {
+		get { return int.Parse(textComponent.text);  }
+		set {
+			if(value < 0) throw new System.ArgumentOutOfRangeException();
+			this.textComponent.text = value.ToString();
+		}
+	}
 
 	void Awake() {
 		Construct(GetComponent<Text>());
 	}
 
 	public void Construct(Text text) {
-		this.text = text;
+		this.textComponent = text;
 	}
 
-	public void SetScore(int score) {
-		if(score < 0) throw new System.ArgumentOutOfRangeException();
-		this.text.text = score.ToString();
-	}
 }

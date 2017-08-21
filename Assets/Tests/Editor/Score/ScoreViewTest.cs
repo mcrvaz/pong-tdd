@@ -20,14 +20,20 @@ public class ScoreViewTest {
 		}
 
 		[Test]
-		public void Set_Score_1() {
-			scoreView.SetScore(1);
-			Assert.AreEqual("1", scoreView.text.text);
+		public void Set_Score_Equals_1() {
+			scoreView.Score = 1;
+			Assert.AreEqual(1, scoreView.Score);
 		}
 
 		[Test]
 		public void Throws_Expection_Negative_Score() {
-			Assert.Throws<System.ArgumentOutOfRangeException>(() => scoreView.SetScore(-1));
+			Assert.Throws<System.ArgumentOutOfRangeException>(() => scoreView.Score = -1);
+		}
+
+		[Test]
+		public void Return_Current_Score_Equals_1() {
+			scoreView.Score = 1;
+			Assert.AreEqual(1, scoreView.Score);
 		}
 	}
 
