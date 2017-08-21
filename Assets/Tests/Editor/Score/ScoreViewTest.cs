@@ -20,6 +20,11 @@ public class ScoreViewTest {
 		}
 
 		[Test]
+		public void Score_Starts_At_0() {
+			Assert.AreEqual(0, scoreView.Score);
+		}
+
+		[Test]
 		public void Set_Score_Equals_1() {
 			scoreView.Score = 1;
 			Assert.AreEqual(1, scoreView.Score);

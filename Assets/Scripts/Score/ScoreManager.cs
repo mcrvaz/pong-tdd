@@ -19,10 +19,9 @@ public class ScoreManager : MonoBehaviour {
 		this.Construct(GetComponent<ScoreViewManager>());
 	}
 
-    public Dictionary<Players, int> ScorePoint(Players player) {
+    public void ScorePoint(Players player) {
 		this.Scores[player]++;
 		UpdateScores();
-		return this.Scores;
 	}
 
 	private void UpdateScores() {

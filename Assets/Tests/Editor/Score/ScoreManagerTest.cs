@@ -20,20 +20,20 @@ public class ScoreManagerTest {
 
 		[Test]
 		public void Player1_Scores_1_Point() {
-			var score = scoreManager.ScorePoint(Players.ONE);
-			Assert.AreEqual(1, score[Players.ONE]);
+			scoreManager.ScorePoint(Players.ONE);
+			Assert.AreEqual(1, scoreManager.Scores[Players.ONE]);
 		}
 
 		[Test]
 		public void Player2_Scores_1_Point() {
-			var score = scoreManager.ScorePoint(Players.TWO);
-			Assert.AreEqual(1, score[Players.TWO]);
+			scoreManager.ScorePoint(Players.TWO);
+			Assert.AreEqual(1, scoreManager.Scores[Players.TWO]);
 		}
 
 		[Test]
 		public void Visible_Score_Is_Updated() {
-			var score = scoreManager.ScorePoint(Players.ONE);
-			scoreManager.scoreViewManager.Received().UpdateScore(score);
+			scoreManager.ScorePoint(Players.ONE);
+			scoreManager.scoreViewManager.Received().UpdateScore(scoreManager.Scores);
 		}
 	}
 

@@ -96,7 +96,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 0
 --- !u!114 &114511929137260172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -108,7 +108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2027ef14c5f48840b7fd659561bfa17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 0}
 --- !u!114 &114546853679529586
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49122a893a2783745ad24ba20453a7ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreboard:
+  currentScore:
   - {fileID: 114782598424874990}
   - {fileID: 114511929137260172}
 --- !u!114 &114782598424874990
@@ -145,7 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2027ef14c5f48840b7fd659561bfa17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 0}
 --- !u!114 &114869663320284278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -178,7 +176,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 0
 --- !u!222 &222405411630125398
 CanvasRenderer:
   m_ObjectHideFlags: 1

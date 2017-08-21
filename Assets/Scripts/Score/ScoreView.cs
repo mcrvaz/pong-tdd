@@ -21,6 +21,7 @@ public class ScoreView : MonoBehaviour {
 
 	public void Construct(Text text) {
 		this.textComponent = text;
+		this.Score = 0;
 	}
 
 }
