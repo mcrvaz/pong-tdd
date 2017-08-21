@@ -7,16 +7,22 @@ using NSubstitute;
 
 public class BallTest {
 
+	private GameObject go;
 	private Ball ball;
 	private Rigidbody2D rigidbody;
 
 	[SetUp]
 	public void BeforeEachTest() {
 		var prefab = Resources.Load("Prefabs/Ball");
-		var go = PrefabUtility.InstantiatePrefab(prefab) as GameObject;
+		go = PrefabUtility.InstantiatePrefab(prefab) as GameObject;
 		ball = go.GetComponent<Ball>();
 		rigidbody = ball.GetComponent<Rigidbody2D>();
 		rigidbody.position = Vector2.zero;
+	}
+
+	[TearDown]
+	public void AfterEachTest() {
+		GameObject.Destroy(go);
 	}
 
 	[UnityTest]

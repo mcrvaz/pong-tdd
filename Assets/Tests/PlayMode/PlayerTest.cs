@@ -7,16 +7,22 @@ using System.Collections;
 
 public class PlayerTest {
 
+	private GameObject go;
 	private Player player;
 	private Rigidbody2D rigidbody;
 
 	[SetUp]
 	public void BeforeEachTest() {
 		var prefab = Resources.Load("Prefabs/Player");
-		var go = PrefabUtility.InstantiatePrefab(prefab) as GameObject;
+		go = PrefabUtility.InstantiatePrefab(prefab) as GameObject;
 		player = go.GetComponent<Player>();
 		rigidbody = player.GetComponent<Rigidbody2D>();
 		rigidbody.position = Vector2.zero;
+	}
+
+	[TearDown]
+	public void AfterEachTest() {
+		GameObject.Destroy(go);
 	}
 
 	[UnityTest]
@@ -96,4 +102,5 @@ public class PlayerTest {
 			0.1f
 		);
 	}
+
 }
