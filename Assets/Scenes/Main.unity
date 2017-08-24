@@ -108,6 +108,48 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &23672947
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4119508092763392, guid: 0dbb76734bed2d84fb27616a6e6d0949, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119508092763392, guid: 0dbb76734bed2d84fb27616a6e6d0949, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119508092763392, guid: 0dbb76734bed2d84fb27616a6e6d0949, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119508092763392, guid: 0dbb76734bed2d84fb27616a6e6d0949, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119508092763392, guid: 0dbb76734bed2d84fb27616a6e6d0949, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119508092763392, guid: 0dbb76734bed2d84fb27616a6e6d0949, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119508092763392, guid: 0dbb76734bed2d84fb27616a6e6d0949, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119508092763392, guid: 0dbb76734bed2d84fb27616a6e6d0949, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0dbb76734bed2d84fb27616a6e6d0949, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &158645168
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,7 +180,7 @@ Transform:
   - {fileID: 1809694486}
   - {fileID: 1089758281}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &338883397
 GameObject:
@@ -257,7 +299,7 @@ Transform:
   - {fileID: 2007292384}
   - {fileID: 1951603750}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &898039373 stripped
 MonoBehaviour:
@@ -905,7 +947,7 @@ RectTransform:
   - {fileID: 1852301886}
   - {fileID: 2068011249}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
