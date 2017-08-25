@@ -5,11 +5,9 @@ using NUnit.Framework;
 using NSubstitute;
 using System.Collections;
 
-public class PlayerTest {
+public class PlayerTest : BasePlayTest {
 
-	private GameObject go;
 	private Player player;
-    private string axis;
     private Rigidbody2D rigidbody;
 
 	[SetUp]
@@ -17,14 +15,8 @@ public class PlayerTest {
 		var prefab = Resources.Load("Prefabs/Player");
 		go = PrefabUtility.InstantiatePrefab(prefab) as GameObject;
 		player = go.GetComponent<Player>();
-		axis = player.axis;
 		rigidbody = player.GetComponent<Rigidbody2D>();
 		rigidbody.position = Vector2.zero;
-	}
-
-	[TearDown]
-	public void AfterEachTest() {
-		GameObject.Destroy(go);
 	}
 
 	[UnityTest]
@@ -32,7 +24,7 @@ public class PlayerTest {
 		var inputProxy = Substitute.For<IInput>();
 		var timeProxy = Substitute.For<ITime>();
 		var currentPosition = rigidbody.position;
-		inputProxy.GetAxisRaw(axis).Returns(1);
+		inputProxy.GetAxisRaw(player.axis).Returns(1);
 		timeProxy.GetFixedDeltaTime().Returns(1);
 		player.inputProxy = inputProxy;
 		player.timeProxy = timeProxy;
@@ -52,7 +44,7 @@ public class PlayerTest {
 		var timeProxy = Substitute.For<ITime>();
 		var currentPosition = rigidbody.position;
 		rigidbody.position = Vector2.one;
-		inputProxy.GetAxisRaw(axis).Returns(1);
+		inputProxy.GetAxisRaw(player.axis).Returns(1);
 		timeProxy.GetFixedDeltaTime().Returns(1);
 		player.inputProxy = inputProxy;
 		player.timeProxy = timeProxy;
@@ -67,11 +59,11 @@ public class PlayerTest {
 	}
 
 	[UnityTest]
-	public IEnumerator _Moves_Player_2_Times_Speed_Units_Vertically_Starting_At_0() {
+	public IEnumerator _Player_Does_Not_Move_Vertically_Starting_At_0() {
 		var inputProxy = Substitute.For<IInput>();
 		var timeProxy = Substitute.For<ITime>();
 		var currentPosition = rigidbody.position;
-		inputProxy.GetAxisRaw(axis).Returns(2);
+		inputProxy.GetAxisRaw(player.axis).Returns(0);
 		timeProxy.GetFixedDeltaTime().Returns(1);
 		player.inputProxy = inputProxy;
 		player.timeProxy = timeProxy;
@@ -79,19 +71,19 @@ public class PlayerTest {
 		yield return new WaitForFixedUpdate();
 
 		Assert.AreEqual(
-			2 * player.Speed,
+			0,
 			rigidbody.position.y,
 			0.1f
 		);
 	}
 
 	[UnityTest]
-	public IEnumerator _Moves_Player_2_Times_Speed_Units_Vertically_Starting_At_1() {
+	public IEnumerator _Player_Does_Not_Move_Vertically_Starting_At_1() {
 		var inputProxy = Substitute.For<IInput>();
 		var timeProxy = Substitute.For<ITime>();
 		var currentPosition = rigidbody.position;
 		rigidbody.position = Vector2.one;
-		inputProxy.GetAxisRaw(axis).Returns(2);
+		inputProxy.GetAxisRaw(player.axis).Returns(0);
 		timeProxy.GetFixedDeltaTime().Returns(1);
 		player.inputProxy = inputProxy;
 		player.timeProxy = timeProxy;
@@ -99,7 +91,7 @@ public class PlayerTest {
 		yield return new WaitForFixedUpdate();
 
 		Assert.AreEqual(
-			(2 * player.Speed) + 1,
+			1,
 			rigidbody.position.y,
 			0.1f
 		);

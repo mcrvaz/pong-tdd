@@ -5,9 +5,8 @@ using NUnit.Framework;
 using System.Collections;
 using NSubstitute;
 
-public class BallTest {
+public class BallTest : BasePlayTest {
 
-	private GameObject go;
 	private Ball ball;
 	private Rigidbody2D rigidbody;
 
@@ -18,11 +17,6 @@ public class BallTest {
 		ball = go.GetComponent<Ball>();
 		rigidbody = ball.GetComponent<Rigidbody2D>();
 		rigidbody.position = Vector2.zero;
-	}
-
-	[TearDown]
-	public void AfterEachTest() {
-		GameObject.Destroy(go);
 	}
 
 	[UnityTest]
