@@ -16,7 +16,7 @@ public class BallMovementTest {
 		[Test]
 		public void Sets_Positive_1_Horizontal_Starting_Direction() {
 			var random = Substitute.For<IRandom>();
-			random.Range(Arg.Any<int>(), Arg.Any<int>()).Returns(1);
+			random.Range(0, 0).ReturnsForAnyArgs(1);
 			randomUtils.randomProxy = random;
 			ballMovement.random = randomUtils;
 
@@ -29,7 +29,7 @@ public class BallMovementTest {
 		[Test]
 		public void Sets_Negative_1_Horizontal_Starting_Direction() {
 			var random = Substitute.For<IRandom>();
-			random.Range(Arg.Any<int>(), Arg.Any<int>()).Returns(0);
+			random.Range(0, 0).ReturnsForAnyArgs(0);
 			randomUtils.randomProxy = random;
 			ballMovement.random = randomUtils;
 
@@ -42,7 +42,7 @@ public class BallMovementTest {
 		[Test]
 		public void Sets_Positive_1_Vertical_Starting_Direction() {
 			var random = Substitute.For<IRandom>();
-			random.Range(Arg.Any<int>(), Arg.Any<int>()).Returns(1);
+			random.Range(0, 0).ReturnsForAnyArgs(1);
 			randomUtils.randomProxy = random;
 			ballMovement.random = randomUtils;
 
@@ -55,7 +55,7 @@ public class BallMovementTest {
 		[Test]
 		public void Sets_Negative_1_Vertical_Starting_Direction() {
 			var random = Substitute.For<IRandom>();
-			random.Range(Arg.Any<int>(), Arg.Any<int>()).Returns(0);
+			random.Range(0, 0).ReturnsForAnyArgs(0);
 			randomUtils.randomProxy = random;
 			ballMovement.random = randomUtils;
 

@@ -9,13 +9,15 @@ public class PlayerTest {
 
 	private GameObject go;
 	private Player player;
-	private Rigidbody2D rigidbody;
+    private string axis;
+    private Rigidbody2D rigidbody;
 
 	[SetUp]
 	public void BeforeEachTest() {
 		var prefab = Resources.Load("Prefabs/Player");
 		go = PrefabUtility.InstantiatePrefab(prefab) as GameObject;
 		player = go.GetComponent<Player>();
+		axis = player.axis;
 		rigidbody = player.GetComponent<Rigidbody2D>();
 		rigidbody.position = Vector2.zero;
 	}
@@ -30,7 +32,7 @@ public class PlayerTest {
 		var inputProxy = Substitute.For<IInput>();
 		var timeProxy = Substitute.For<ITime>();
 		var currentPosition = rigidbody.position;
-		inputProxy.GetAxisRaw("Vertical").Returns(1);
+		inputProxy.GetAxisRaw(axis).Returns(1);
 		timeProxy.GetFixedDeltaTime().Returns(1);
 		player.inputProxy = inputProxy;
 		player.timeProxy = timeProxy;
@@ -50,7 +52,7 @@ public class PlayerTest {
 		var timeProxy = Substitute.For<ITime>();
 		var currentPosition = rigidbody.position;
 		rigidbody.position = Vector2.one;
-		inputProxy.GetAxisRaw("Vertical").Returns(1);
+		inputProxy.GetAxisRaw(axis).Returns(1);
 		timeProxy.GetFixedDeltaTime().Returns(1);
 		player.inputProxy = inputProxy;
 		player.timeProxy = timeProxy;
@@ -69,7 +71,7 @@ public class PlayerTest {
 		var inputProxy = Substitute.For<IInput>();
 		var timeProxy = Substitute.For<ITime>();
 		var currentPosition = rigidbody.position;
-		inputProxy.GetAxisRaw("Vertical").Returns(2);
+		inputProxy.GetAxisRaw(axis).Returns(2);
 		timeProxy.GetFixedDeltaTime().Returns(1);
 		player.inputProxy = inputProxy;
 		player.timeProxy = timeProxy;
@@ -89,7 +91,7 @@ public class PlayerTest {
 		var timeProxy = Substitute.For<ITime>();
 		var currentPosition = rigidbody.position;
 		rigidbody.position = Vector2.one;
-		inputProxy.GetAxisRaw("Vertical").Returns(2);
+		inputProxy.GetAxisRaw(axis).Returns(2);
 		timeProxy.GetFixedDeltaTime().Returns(1);
 		player.inputProxy = inputProxy;
 		player.timeProxy = timeProxy;

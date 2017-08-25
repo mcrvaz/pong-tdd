@@ -31,7 +31,7 @@ public class GoalTest {
 		public void Calls_ScoreEvent_When_Collider_Tag_Is_Ball() {
 			ball.tag = Tags.BALL;
 			goal.OnTriggerEnter2D(ball);
-			scoreEvent.Received().Invoke(Arg.Any<Players>());
+			scoreEvent.Received(3).Invoke(Arg.Any<Players>());
 		}
 	}
 
