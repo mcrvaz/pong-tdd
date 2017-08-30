@@ -10,13 +10,13 @@ public class GoalTest {
 
 	public class OnTriggerEnter2D {
         private Goal goal;
-        private ScoreEvent scoreEvent;
+        private IScoreEvent scoreEvent;
         private BoxCollider2D ball;
 
         [SetUp]
 		public void BeforeEachTest() {
 			goal = new GameObject().AddComponent<Goal>();
-			scoreEvent = Substitute.For<ScoreEvent>();
+			scoreEvent = Substitute.For<IScoreEvent>();
 			ball = new GameObject().AddComponent<BoxCollider2D>();
 			goal.Construct(Players.ONE, scoreEvent);
 		}
@@ -31,7 +31,7 @@ public class GoalTest {
 		public void Calls_ScoreEvent_When_Collider_Tag_Is_Ball() {
 			ball.tag = Tags.BALL;
 			goal.OnTriggerEnter2D(ball);
-			scoreEvent.Received(3).Invoke(Arg.Any<Players>());
+			scoreEvent.Received().Invoke(Arg.Any<Players>());
 		}
 	}
 

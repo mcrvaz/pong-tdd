@@ -2,16 +2,17 @@
 using UnityEngine.Events;
 
 [System.Serializable]
-public class ScoreEvent : UnityEvent<Players> {}
+public class ScoreEvent : UnityEvent<Players>, IScoreEvent {}
 
 public class Goal : MonoBehaviour {
 
 	public Players scoresTo;
 	public ScoreEvent scoreEvent;
+	private IScoreEvent _scoreEvent { get; set; }
 
-	public void Construct(Players scoresTo, ScoreEvent scoreEvent) {
+	public void Construct(Players scoresTo, IScoreEvent scoreEvent) {
 		this.scoresTo = scoresTo;
-		this.scoreEvent = scoreEvent;
+		this._scoreEvent = scoreEvent;
 	}
 
 	public void Awake() {
@@ -19,7 +20,7 @@ public class Goal : MonoBehaviour {
 	}
 
 	public void OnTriggerEnter2D(Collider2D other) {
-		if(other.tag == Tags.BALL) scoreEvent.Invoke(scoresTo);
+		if(other.tag == Tags.BALL) _scoreEvent.Invoke(scoresTo);
 	}
 
 }
