@@ -1,16 +1,17 @@
-﻿using NUnit.Framework;
+﻿using UnityEngine;
+using NUnit.Framework;
 using NSubstitute;
 
 public class BallMovementTest {
 
 	public class CalculateStartingDirection : BallMovementTest {
-		private RandomUtils randomUtils;
 		private BallMovement ballMovement;
+		private RandomUtils randomUtils;
 
 		[SetUp]
 		public void BeforeEachTest() {
 			this.randomUtils = new RandomUtils();
-			this.ballMovement = new BallMovement(2);
+			this.ballMovement = new BallMovement(2, Vector2.zero);
 		}
 
 		[Test]
