@@ -8,15 +8,16 @@ using System.Collections.Generic;
 public class MatchManagerTest {
 
     private Ball ball;
-	private Rigidbody2D ballRigidbody;
     private ScoreManager scoreManager;
     private MatchManager matchManager;
 
     private Ball CreateBall() {
 		var ballGo = new GameObject();
 		ballGo.tag = Tags.BALL;
-		ballRigidbody = ballGo.AddComponent<Rigidbody2D>();
+		ballGo.AddComponent<Rigidbody2D>();
+		ballGo.AddComponent<SpriteRenderer>();
 		var ball = ballGo.AddComponent<Ball>();
+		ball.ballMovement.speed = 1;
 		ball.speed = 2;
 		return ball;
 	}
@@ -30,11 +31,17 @@ public class MatchManagerTest {
 		return scoreManager;
 	}
 
+	private MatchManager CreateMatchManager() {
+		var matchManager = new GameObject().AddComponent<MatchManager>();
+		matchManager.timeBeforeLaunch = 0.1f;
+		return matchManager;
+	}
+
 	[SetUp]
 	public void BeforeEachTest() {
 		ball = CreateBall();
 		scoreManager = CreateScoreManager();
-		matchManager = new GameObject().AddComponent<MatchManager>();
+		matchManager = CreateMatchManager();
 	}
 
 	[TearDown]
@@ -73,22 +80,36 @@ public class MatchManagerTest {
 
 		[UnityTest]
 		public IEnumerator Ball_Velocity_Is_Zero_After_Score() {
-			ballRigidbody.velocity = Vector2.one;
+			ball.GetComponent<Rigidbody2D>().velocity = Vector2.one;
 			yield return new WaitForFixedUpdate();
 			matchManager.ScorePoint(Players.ONE);
 			yield return new WaitForFixedUpdate();
-			Assert.AreEqual(0, ballRigidbody.velocity.magnitude, 0.01);
+			Assert.AreEqual(0, ball.GetComponent<Rigidbody2D>().velocity.magnitude);
 		}
 
-		// [UnityTest]
-		// public IEnumerator Ball_Velocity_Is_Non_Zero_After_TimeBeforeLaunch_Seconds() {
-		// 	ball.transform.position = Vector2.one;
-		// 	yield return null;
-		// 	matchManager.ScorePoint(Players.ONE);
-		// 	yield return new WaitForSeconds(matchManager.timeBeforeLaunch + 1);
-		// 	Assert.AreNotEqual(0, ballRigidbody.velocity.x);
-		// 	Assert.AreNotEqual(0, ballRigidbody.velocity.y);
-		// }
+		[UnityTest]
+		public IEnumerator Ball_Is_Invisible_After_Score() {
+			matchManager.ScorePoint(Players.ONE);
+			yield return null;
+			Assert.IsFalse(ball.GetComponent<SpriteRenderer>().enabled);
+		}
+
+		[UnityTest]
+		public IEnumerator Ball_Velocity_Is_Non_Zero_After_TimeBeforeLaunch_Seconds() {
+			ball.transform.position = Vector2.one;
+			yield return null;
+			matchManager.ScorePoint(Players.ONE);
+			yield return new WaitForSeconds(matchManager.timeBeforeLaunch);
+			Assert.AreNotEqual(0, ball.GetComponent<Rigidbody2D>().velocity.magnitude);
+		}
+
+		[UnityTest]
+		public IEnumerator Ball_Is_Visible_After_TimeBeforeLaunch_Seconds() {
+			matchManager.ScorePoint(Players.ONE);
+			yield return new WaitForSeconds(matchManager.timeBeforeLaunch);
+			Assert.IsTrue(ball.GetComponent<SpriteRenderer>().enabled);
+		}
+
 	}
 
 }

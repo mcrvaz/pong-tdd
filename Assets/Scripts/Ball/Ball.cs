@@ -8,13 +8,17 @@ public class Ball : MonoBehaviour {
 	private Rigidbody2D rb;
 	private SpriteRenderer rend;
 
-	public void Construct(Rigidbody2D rb) {
+	public void Construct(Rigidbody2D rb, SpriteRenderer rend) {
 		this.ballMovement = new BallMovement(speed, transform.position);
 		this.rb = rb;
+		this.rend = rend;
 	}
 
 	void Awake() {
-		Construct(GetComponent<Rigidbody2D>());
+		Construct(
+			GetComponent<Rigidbody2D>(),
+			GetComponent<SpriteRenderer>()
+		);
 	}
 
 	void Start () {
@@ -30,6 +34,14 @@ public class Ball : MonoBehaviour {
 		rb.angularVelocity = 0;
 		transform.position = ballMovement.InitialPosition; //move instantly
 		rb.Sleep(); //force stop
+	}
+
+	public void Hide() {
+		rend.enabled = false;
+	}
+
+	public void Show() {
+		rend.enabled = true;
 	}
 
 }

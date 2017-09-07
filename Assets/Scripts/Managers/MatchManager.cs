@@ -23,11 +23,13 @@ public class MatchManager : MonoBehaviour {
     public void ScorePoint(Players player) {
         this.scoreManager.ScorePoint(player);
         this.ball.ResetPosition();
+        this.ball.Hide();
         StartCoroutine(LaunchBall());
     }
 
     private IEnumerator LaunchBall() {
         yield return new WaitForSeconds(timeBeforeLaunch);
+        this.ball.Show();
         this.ball.Launch();
     }
 

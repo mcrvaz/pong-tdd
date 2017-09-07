@@ -74,4 +74,24 @@ public class BallTest : BasePlayTest {
 		}
 	}
 
+	public class Hide : BallTest {
+		[UnityTest]
+		public IEnumerator Ball_Should_Not_Be_Visibile_After_Being_Visible() {
+			ball.GetComponent<SpriteRenderer>().enabled = true;
+			ball.Hide();
+			yield return null;
+			Assert.IsFalse(ball.GetComponent<SpriteRenderer>().enabled);
+		}
+	}
+
+	public class Show : BallTest {
+		[UnityTest]
+		public IEnumerator Ball_Should_Be_Visibile_After_Being_Invisible() {
+			ball.GetComponent<SpriteRenderer>().enabled = false;
+			ball.Show();
+			yield return null;
+			Assert.IsTrue(ball.GetComponent<SpriteRenderer>().enabled);
+		}
+	}
+
 }
