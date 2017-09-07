@@ -6,6 +6,7 @@ public class Ball : MonoBehaviour {
 
 	public BallMovement ballMovement { get; set; }
 	private Rigidbody2D rb;
+	private SpriteRenderer rend;
 
 	public void Construct(Rigidbody2D rb) {
 		this.ballMovement = new BallMovement(speed, transform.position);
@@ -26,7 +27,9 @@ public class Ball : MonoBehaviour {
 
 	public void ResetPosition() {
 		rb.velocity = Vector2.zero;
-		rb.position = ballMovement.InitialPosition;
+		rb.angularVelocity = 0;
+		transform.position = ballMovement.InitialPosition; //move instantly
+		rb.Sleep(); //force stop
 	}
 
 }

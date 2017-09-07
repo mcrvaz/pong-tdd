@@ -4,20 +4,31 @@ using UnityEngine;
 
 public class MatchManager : MonoBehaviour {
 
-    private Ball ball;
+    public float timeBeforeLaunch;
 
-    public void Construct(Ball ball) {
+    private Ball ball;
+    private ScoreManager scoreManager;
+
+    public void Construct(Ball ball, ScoreManager scoreManager) {
         this.ball = ball;
+        this.scoreManager = scoreManager;
     }
 
     void Awake() {
-        Construct(
-            GameObject.FindGameObjectWithTag(Tags.BALL).GetComponent<Ball>()
-        );
+        var ball = GameObject.FindGameObjectWithTag(Tags.BALL).GetComponent<Ball>();
+        var scoreManager = GameObject.FindObjectOfType<ScoreManager>();
+        Construct(ball, scoreManager);
     }
 
-    public void ResetBallPosition() {
-        this.ball.transform.position = Vector2.zero;
+    public void ScorePoint(Players player) {
+        this.scoreManager.ScorePoint(player);
+        this.ball.ResetPosition();
+        StartCoroutine(LaunchBall());
+    }
+
+    private IEnumerator LaunchBall() {
+        yield return new WaitForSeconds(timeBeforeLaunch);
+        this.ball.Launch();
     }
 
 }
