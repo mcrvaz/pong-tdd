@@ -22,7 +22,7 @@ public class Ball : MonoBehaviour {
 	}
 
 	void Start () {
-		Launch();
+		// Launch();
 	}
 
 	public void Launch() {
