@@ -1288,6 +1288,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1902858912 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1743400983379548, guid: bb48633ae40e285489e49d1f34eb1e93,
+    type: 2}
+  m_PrefabInternal: {fileID: 1589958691}
+--- !u!114 &1902858917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1902858912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 141eef7b5d9d8e348b9bf8914d2433d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1951603749
 Prefab:
   m_ObjectHideFlags: 0
@@ -1377,6 +1393,11 @@ Prefab:
     - target: {fileID: 1542240358245192, guid: 1769009fc118c1a4d8f50e03844b0ec5, type: 2}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 114391652924837792, guid: 1769009fc118c1a4d8f50e03844b0ec5,
+        type: 2}
+      propertyPath: scoresTo
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1769009fc118c1a4d8f50e03844b0ec5, type: 2}
