@@ -9,18 +9,21 @@ public class MatchManager : MonoBehaviour {
     private Ball ball;
     private ScoreManager scoreManager;
     private BallTimer ballTimer;
+    private PowerupManager pwManager;
 
-    public void Construct(Ball ball, ScoreManager scoreManager, BallTimer ballTimer) {
+    public void Construct(Ball ball, ScoreManager scoreManager, BallTimer ballTimer, PowerupManager pwManager) {
         this.ball = ball;
         this.scoreManager = scoreManager;
         this.ballTimer = ballTimer;
+        this.pwManager = pwManager;
     }
 
     void Awake() {
         var ball = GameObject.FindGameObjectWithTag(Tags.BALL).GetComponent<Ball>();
         var scoreManager = GameObject.FindObjectOfType<ScoreManager>();
         var ballTimer = GameObject.FindObjectOfType<BallTimer>();
-        Construct(ball, scoreManager, ballTimer);
+        var pwManager = GameObject.FindObjectOfType<PowerupManager>();
+        Construct(ball, scoreManager, ballTimer, pwManager);
     }
 
     void Start() {
@@ -31,12 +34,14 @@ public class MatchManager : MonoBehaviour {
         this.scoreManager.ScorePoint(player);
         this.ball.ResetPosition();
         this.ball.Hide();
+        this.pwManager.PauseGeneration();
         StartCoroutine(LaunchBall());
     }
 
     private IEnumerator LaunchBall() {
         this.ballTimer.ShowTimer(timeBeforeLaunch);
         yield return new WaitForSeconds(timeBeforeLaunch);
+        this.pwManager.ResumeGeneration();
         this.ballTimer.HideTimer();
         this.ball.Show();
         this.ball.Launch();

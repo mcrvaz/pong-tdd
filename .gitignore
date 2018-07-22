@@ -39,3 +39,5 @@ output_log.txt
 # Builds
 *.apk
 *.unitypackage
+
+todo.txt
