@@ -27,6 +27,7 @@ public class MatchManager : MonoBehaviour {
     }
 
     void Start() {
+        this.pwManager.PauseGeneration();
         StartCoroutine(LaunchBall());
     }
 

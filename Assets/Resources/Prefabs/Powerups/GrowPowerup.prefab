@@ -20,11 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4306332223785548}
   - component: {fileID: 114958228780607718}
+  - component: {fileID: 114657604389143932}
   - component: {fileID: 212404609915790570}
   - component: {fileID: 61584515321762746}
-  - component: {fileID: 114657604389143932}
   m_Layer: 12
-  m_Name: Powerup
+  m_Name: GrowPowerup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61a989783b0220947a721e2fe7b2b413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectDuration: 3
+  inspectorEffectDuration: 3
 --- !u!114 &114958228780607718
 MonoBehaviour:
   m_ObjectHideFlags: 1

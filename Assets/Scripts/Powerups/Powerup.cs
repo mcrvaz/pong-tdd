@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PowerupEffect))]
 public class Powerup : MonoBehaviour {
 
 	public float speed;
@@ -14,8 +15,11 @@ public class Powerup : MonoBehaviour {
 	}
 
 	void Start() {
-		List<Vector2> directions = new List<Vector2>{ Vector2.right, Vector2.left };
-		direction = directions[Random.Range(0, directions.Count)];
+		direction = new Vector2(new RandomUtils().Opposite(1), 0);
+	}
+
+	void Update() {
+		if (pwEffect.effectApplied && pwEffect.effectDuration <= 0) pwEffect.RemoveEffect();
 	}
 
 	void FixedUpdate () {
@@ -25,15 +29,14 @@ public class Powerup : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D col) {
 		var colGo = col.gameObject;
 		if (colGo.CompareTag(Tags.PLAYER)) {
-			Player player = colGo.GetComponent<Player>();
-			StartCoroutine(ApplyEffect(player));
+			ApplyEffect(colGo.GetComponent<Player>());
 		}
 	}
 
-	IEnumerator ApplyEffect(Player player) {
+	void ApplyEffect(Player player) {
 		GetComponent<SpriteRenderer>().enabled = false;
-		yield return pwEffect.ApplyEffect(player);
-		Destroy(gameObject);
+		GetComponent<BoxCollider2D>().enabled = false;
+		pwEffect.ApplyEffect(player);
 	}
 
 }
